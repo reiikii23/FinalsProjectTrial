@@ -8,3 +8,13 @@
  .left-bg{
  	-fx-background-color: #ff0000;
  }
+
+ .main-form{
+ 	-fx-background-color: #e7b307;
+ }
+
+.left-form{
+	-fx-font-family: 'Montserrat',montserrat;
+	-fx-font-weight: 900;
+	-fx-font-size: 15px;
+}

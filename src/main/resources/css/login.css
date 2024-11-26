@@ -1,40 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-.root{
-	-fx-font-family: 'Montserrat', sans-serif;
-	--fx-accent-color: #4a90e2;
-	-fx-font-size:14px;
-}
+ .root{
+ 	-fx-font-family: 'Montserrat',montserrat;
+ 	-fx-font-weight: 900;
+ }
 
-.text-field{
-	-fx-background-color: #f0f0f0;
-	-fx-border-color: #dcdcdc;
-	-fx-border-radius: 5px;
-	-fx-padding: 10px;
-}
-
-.text-field:focused{
-	-fx-background-color: #4a90e2;
-	-fx-border-color: #fffff;
-}
-
-.button{
-	-fx-background-color:#4a90e2;
-	-fx-text-fill: #fffff;
-	-fx-border-radius: 5px;
-	-fx-padding: 10px 20px;
-	-fx-cursor: hand;
-}
-
-.button:hover{
-	-fx-background-color: #357abd;
-}
-
-.button:pressed{
-	-fx-background-color: #2c5a8a;
-}
-
-.label{
-	-fx-font-size:24px;
-	-fx-font-weight: bold;
-}
+ .left-bg{
+ 	-fx-background-color: #ff0000;
+ }

@@ -1,20 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalsproject.finalsproject.controllers.LoginController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalsproject.finalsproject.controllers.LoginController">
    <children>
-      <Label text="Employee Login" />
-      <TextField fx:id="username" styleClass="text field" />
-      <PasswordField fx:id="password" styleClass="text field" />
-      <Button mnemonicParsing="false" onAction="#handleLogin" text="Login" />
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <AnchorPane fx:id="loginForm" layoutX="306.0" prefHeight="400.0" prefWidth="294.0">
+               <children>
+                  <Label fx:id="employeeLabel" layoutX="53.0" layoutY="101.0" text="EMPLOYEE LOGIN">
+                     <font>
+                        <Font name="Montserrat Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="loginUsername" layoutX="76.0" layoutY="140.0" promptText="Username" />
+                  <Button fx:id="loginBtn" layoutX="131.0" layoutY="213.0" mnemonicParsing="false" text="LOGIN" />
+                  <PasswordField fx:id="loginPassword" layoutX="77.0" layoutY="177.0" promptText="Password" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="registerForm" layoutX="5.0" layoutY="5.0" prefHeight="400.0" prefWidth="294.0">
+               <children>
+                  <Label layoutX="87.0" layoutY="95.0" text="REGISTRATION">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="su_username" layoutX="76.0" layoutY="140.0" promptText="Username" />
+                  <Button fx:id="signUp" layoutX="131.0" layoutY="213.0" mnemonicParsing="false" text="SIGN UP" />
+                  <PasswordField fx:id="su_password" layoutX="77.0" layoutY="177.0" promptText="Password" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="left_form" prefHeight="402.0" prefWidth="308.0" styleClass="left-bg" stylesheets="@../css/login.css">
+               <children>
+                  <Label fx:id="newLabel" layoutX="63.0" layoutY="331.0" text="New Employee? Create here." />
+                  <Button fx:id="createAcc" layoutX="47.0" layoutY="363.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="29.0" prefWidth="212.0" text="CREATE ACCOUNT" />
+                  <Button fx:id="leftFormAlready" layoutX="48.0" layoutY="363.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="29.0" prefWidth="212.0" text="ALREADY HAVE AN ACCOUNT?" visible="false" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="55.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/mcdo_logo1.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="41.0" layoutY="193.0" text="Mcdonald's San Fernando, La Union" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
-   <padding>
-      <Insets bottom="150.0" left="150.0" right="150.0" />
-   </padding>
-</VBox>
+</StackPane>

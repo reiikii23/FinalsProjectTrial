@@ -9,6 +9,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class LoginController{
 
@@ -50,6 +53,10 @@ public class LoginController{
 
     @FXML
     private Button leftFormAlready;
+
+    private Connection connect;
+    private PreparedStatement pstmt;
+    private ResultSet result;
 
     public void switchForm(ActionEvent event){
         TranslateTransition slider = new TranslateTransition();

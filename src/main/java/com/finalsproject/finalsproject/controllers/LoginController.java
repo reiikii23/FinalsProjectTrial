@@ -1,12 +1,17 @@
 package com.finalsproject.finalsproject.controllers;
 
+import com.finalsproject.finalsproject.Data;
 import com.finalsproject.finalsproject.DatabaseConnection;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.sql.Connection;
@@ -60,7 +65,69 @@ public class LoginController{
 
     private Alert alert;
 
+    private Connection connect;
+    private PreparedStatement pstmt;
+    private ResultSet result;
 
+    public void loginBtn() {
+
+        if (loginUsername.getText().isEmpty() || loginPassword.getText().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Incorrect Username/Password");
+            alert.showAndWait();
+        } else {
+
+            String selectData = "SELECT username, password FROM employees WHERE username = ? and password = ?";
+
+            connect = DatabaseConnection.connectDB();
+
+            try {
+
+                pstmt = connect.prepareStatement(selectData);
+                pstmt.setString(1, loginUsername.getText());
+                pstmt.setString(2, loginPassword.getText());
+
+                result = pstmt.executeQuery();
+                if (result.next()) {
+                    Data.username = loginUsername.getText();
+
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Successfully Login!");
+                    alert.showAndWait();
+
+                    Parent root = FXMLLoader.load(getClass().getResource("/fxml/formDesign.fxml"));
+
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+
+                    stage.setTitle("Mcdonald's POS System");
+                    stage.setMinWidth(1100);
+                    stage.setMinHeight(600);
+
+                    stage.setScene(scene);
+                    stage.show();
+
+                    loginBtn.getScene().getWindow().hide();
+
+                } else {
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Incorrect Username/Password");
+                    alert.showAndWait();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
 
     public void regBtn(){
 
@@ -111,10 +178,6 @@ public class LoginController{
             }
         }
     }
-
-    private Connection connect;
-    private PreparedStatement pstmt;
-    private ResultSet result;
 
     public void switchForm(ActionEvent event){
         TranslateTransition slider = new TranslateTransition();

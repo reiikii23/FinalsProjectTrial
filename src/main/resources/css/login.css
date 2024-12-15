@@ -2,7 +2,7 @@
 
  .root{
  	-fx-font-family: 'Montserrat',montserrat;
- 	-fx-font-weight: 900;
+ 	-fx-font-weight: bold;
  }
 
  .left-bg{
@@ -17,4 +17,8 @@
 	-fx-font-family: 'Montserrat',montserrat;
 	-fx-font-weight: 900;
 	-fx-font-size: 15px;
+}
+
+.text-bold{
+	-fx-font-weight: bold;
 }
